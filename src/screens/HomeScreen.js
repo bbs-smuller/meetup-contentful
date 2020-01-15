@@ -9,14 +9,14 @@ const HomeScreen = props => {
   // memo
 
   const onButtonPress = useCallback(() => {
-    navigation.navigate('About')
+    navigation.navigate('About', { name: 'SMU' })
   }, [navigation])
 
   // render
 
   return (
     <View style={styles.container}>
-      <Text>Home Screen</Text>
+      <Text>HomeScreen</Text>
       <Button onPress={onButtonPress} title="About" />
     </View>
   )

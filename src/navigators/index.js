@@ -7,9 +7,16 @@ const AppNavigator = createStackNavigator(
   {
     Home: {
       screen: HomeScreen,
+      navigationOptions: () => ({
+        title: `My HomeScreen`,
+      }),
     },
     About: {
       screen: AboutScreen,
+      path: 'about/:name',
+      navigationOptions: ({ navigation }) => ({
+        title: `${navigation.state.params.name}'s Profile`,
+      }),
     },
   },
   {

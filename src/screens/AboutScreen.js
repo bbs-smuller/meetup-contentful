@@ -1,5 +1,6 @@
 import React from 'react'
 import { Platform, Text, View } from 'react-native'
+import PrimaryButton from '../components/PrimaryButton'
 import withMemo from '../decorators/WithMemo'
 import styles from '../styles'
 
@@ -16,6 +17,7 @@ const AboutScreen = () => {
       <Text style={styles.welcome}>Welcome to React Native!</Text>
       <Text style={styles.instructions}>To get started, edit App.js</Text>
       <Text style={styles.instructions}>{instructions}</Text>
+      <PrimaryButton screen="Home" title="Go back" />
     </View>
   )
 }
