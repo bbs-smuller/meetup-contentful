@@ -2,7 +2,7 @@ import React, { useCallback } from 'react'
 import { Button } from 'react-native'
 import { withNavigation } from 'react-navigation'
 import PropTypes from 'prop-types'
-import styles from './styles'
+import withMemo from '../../decorators/WithMemo'
 
 const PrimaryButton = props => {
   const { navigation, screen, title } = props
@@ -15,7 +15,7 @@ const PrimaryButton = props => {
 
   // render
 
-  return <Button onPress={onButtonPress} title={title} style={styles.button} />
+  return <Button onPress={onButtonPress} title={title} color="#6b52ae" />
 }
 
 PrimaryButton.propTypes = {
@@ -27,4 +27,4 @@ PrimaryButton.defaultProps = {
   title: 'OK',
 }
 
-export default withNavigation(PrimaryButton)
+export default withMemo()(withNavigation(PrimaryButton))
