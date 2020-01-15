@@ -8,7 +8,7 @@ Setup the `.env` file to match your configuration.
 
  * `yarn install`
 
- * `cd ios && pod install && cd ..`
+ * `yarn pod`
 
 ## Up & running
 
