@@ -1,8 +1,9 @@
 import React, { useCallback } from 'react'
-import { Button } from 'react-native'
+import { Text, TouchableOpacity } from 'react-native'
 import { withNavigation } from 'react-navigation'
 import PropTypes from 'prop-types'
 import withMemo from '../../decorators/WithMemo'
+import styles from './styles'
 
 const PrimaryButton = props => {
   const { navigation, onPress, route, title } = props
@@ -19,7 +20,11 @@ const PrimaryButton = props => {
 
   // render
 
-  return <Button onPress={onButtonPress} title={title} color="#6b52ae" />
+  return (
+    <TouchableOpacity onPress={onButtonPress} style={styles.container}>
+      <Text style={styles.text}>{title}</Text>
+    </TouchableOpacity>
+  )
 }
 
 PrimaryButton.propTypes = {
@@ -29,9 +34,7 @@ PrimaryButton.propTypes = {
 }
 
 PrimaryButton.defaultProps = {
-  onPress: () => {
-    console.log('PrimaryButton pressed')
-  },
+  onPress: () => {},
   route: {},
   title: 'OK',
 }
