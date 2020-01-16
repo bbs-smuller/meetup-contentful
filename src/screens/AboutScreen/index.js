@@ -17,7 +17,7 @@ const AboutScreen = () => {
       <Text style={styles.title}>Welcome to React Native!</Text>
       <Text style={styles.instructions}>To get started, edit App.js</Text>
       <Text style={styles.lastInstructions}>{instructions}</Text>
-      <PrimaryButton route={{ routeName: 'Home' }} title="Go to home" />
+      <PrimaryButton route={{ routeName: 'Modal' }} title="Modal example" />
     </View>
   )
 }
