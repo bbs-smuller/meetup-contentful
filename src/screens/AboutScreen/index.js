@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { Platform, Text, View } from 'react-native'
-import PrimaryButton from '../components/PrimaryButton'
-import withMemo from '../decorators/WithMemo'
-import styles from '../styles'
+import PrimaryButton from '../../components/PrimaryButton'
+import withMemo from '../../decorators/WithMemo'
+import styles from './styles'
 
 const AboutScreen = () => {
   const instructions = Platform.select({
@@ -10,14 +10,22 @@ const AboutScreen = () => {
     android: 'Double tap R on your keyboard to reload,\nShake or press menu button for dev menu',
   })
 
+  // memo
+
+  const goToHome = useCallback(() => {
+    console.log('GoToHome')
+  }, [])
+
   // render
+
+  // <PrimaryButton route={{ routeName: 'Home' }} title="Go back" />
 
   return (
     <View style={styles.container}>
-      <Text style={styles.welcome}>Welcome to React Native!</Text>
+      <Text style={styles.title}>Welcome to React Native!</Text>
       <Text style={styles.instructions}>To get started, edit App.js</Text>
       <Text style={styles.instructions}>{instructions}</Text>
-      <PrimaryButton screen="Home" title="Go back" />
+      <PrimaryButton onPress={goToHome} title="Go back" />
     </View>
   )
 }

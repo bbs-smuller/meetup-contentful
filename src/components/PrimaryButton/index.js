@@ -5,13 +5,17 @@ import PropTypes from 'prop-types'
 import withMemo from '../../decorators/WithMemo'
 
 const PrimaryButton = props => {
-  const { navigation, screen, title } = props
+  const { navigation, onPress, route, title } = props
 
   // memo
 
   const onButtonPress = useCallback(() => {
-    navigation.navigate(screen)
-  }, [navigation, screen])
+    if (route.routeName) {
+      navigation.navigate(route)
+    } else {
+      onPress()
+    }
+  }, [navigation, onPress, route])
 
   // render
 
@@ -19,11 +23,16 @@ const PrimaryButton = props => {
 }
 
 PrimaryButton.propTypes = {
-  screen: PropTypes.string.isRequired,
+  onPress: PropTypes.func,
+  route: PropTypes.object,
   title: PropTypes.string,
 }
 
 PrimaryButton.defaultProps = {
+  onPress: () => {
+    console.log('PrimaryButton pressed')
+  },
+  route: {},
   title: 'OK',
 }
 

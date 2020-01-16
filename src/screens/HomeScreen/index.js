@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react'
 import { Alert, Button, Text, View } from 'react-native'
-import withMemo from '../decorators/WithMemo'
-import styles from '../styles'
+import withMemo from '../../decorators/WithMemo'
+import styles from './styles'
 
 const HomeScreen = props => {
   const { navigation } = props
@@ -41,7 +41,7 @@ const HomeScreen = props => {
 
   return (
     <View style={styles.container}>
-      <Text>HomeScreen</Text>
+      <Text style={styles.title}>HomeScreen</Text>
       <Button onPress={onButtonPress} title="About" />
       <Button onPress={onAlertPress} title="Alert" />
     </View>
