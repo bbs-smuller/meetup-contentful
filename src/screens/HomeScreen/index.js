@@ -1,10 +1,20 @@
 import React, { useCallback } from 'react'
-import { Alert, Button, Text, View } from 'react-native'
+import { ActivityIndicator, Alert, Button, Text, View } from 'react-native'
+import { useQuery } from '@apollo/react-hooks'
 import withMemo from '../../decorators/WithMemo'
+import query from '../../services/graphql/queries/configurationCollection'
 import styles from './styles'
 
 const HomeScreen = props => {
   const { navigation } = props
+
+  // state
+
+  const { loading, error } = useQuery(query)
+  if (error) {
+    console.warn('Contentful Query ERROR')
+    console.warn(error)
+  }
 
   // memo
 
@@ -40,11 +50,16 @@ const HomeScreen = props => {
   // render
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>HomeScreen</Text>
-      <Button onPress={onButtonPress} title="About" />
-      <Button onPress={onAlertPress} title="Alert" />
-    </View>
+    <>
+      {loading && <ActivityIndicator size="large" />}
+      {!loading && (
+        <View style={styles.container}>
+          <Text style={styles.title}>HomeScreen</Text>
+          <Button onPress={onButtonPress} title="About" />
+          <Button onPress={onAlertPress} title="Alert" />
+        </View>
+      )}
+    </>
   )
 }
 
