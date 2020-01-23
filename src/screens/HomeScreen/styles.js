@@ -12,4 +12,7 @@ export default StyleSheet.create({
     textAlign: 'center',
     margin: 10,
   },
+  loader: {
+    marginTop: 20,
+  },
 })
