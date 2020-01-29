@@ -1,38 +1,40 @@
 import { createAppContainer } from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack'
 import HomeScreen from '../screens/HomeScreen'
-import AboutScreen from '../screens/AboutScreen'
-import ModalScreen from '../screens/ModalScreen'
+import PageScreen from '../screens/PageScreen'
+import ProductCategoriesScreen from '../screens/ProductCategoriesScreen'
+import ProductCategoryScreen from '../screens/ProductCategoryScreen'
+import ProductScreen from '../screens/ProductScreen'
 
 const AppNavigator = createStackNavigator(
   {
     Home: {
       screen: HomeScreen,
-      navigationOptions: () => ({
-        title: `My HomeScreen`,
-      }),
     },
-    About: {
-      screen: AboutScreen,
-      path: 'about/:name',
-      navigationOptions: ({ navigation }) => ({
-        title: `${navigation.state.params.name}'s Profile`,
-      }),
+    Page: {
+      screen: PageScreen,
+      path: 'page/:id',
     },
-    Modal: {
-      screen: ModalScreen,
-      navigationOptions: () => ({
-        title: `Modal example`,
-      }),
+    ProductCategories: {
+      screen: ProductCategoriesScreen,
+    },
+    ProductCategory: {
+      screen: ProductCategoryScreen,
+      path: 'product-category/:id',
+    },
+    Product: {
+      screen: ProductScreen,
+      path: 'product/:id',
     },
   },
   {
     initialRouteName: 'Home',
     defaultNavigationOptions: {
+      title: 'Shopiful',
       headerStyle: {
-        backgroundColor: '#6b52ae',
+        backgroundColor: 'white',
       },
-      headerTintColor: 'white',
+      headerTintColor: 'black',
       headerTitleStyle: {
         fontWeight: 'bold',
       },
