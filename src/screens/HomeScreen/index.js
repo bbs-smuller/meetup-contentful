@@ -45,7 +45,7 @@ const HomeScreen = props => {
         productCategories: data.productCategoriesCollection.items,
       })
     }
-  }, [data, error, loading, locales, setGlobalContext])
+  }, [loading, error, data, locales, setGlobalContext])
 
   // memo
 

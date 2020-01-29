@@ -23,6 +23,9 @@ export default gql`
           id
         }
         title
+        image {
+          url
+        }
       }
     }
   }

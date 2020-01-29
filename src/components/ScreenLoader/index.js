@@ -14,9 +14,9 @@ const ScreenLoader = props => {
           <ActivityIndicator size="large" />
         </SafeAreaView>
       )}
-      {error.length > 0 && (
+      {!loading && Boolean(error) && (
         <SafeAreaView style={styles.container}>
-          <Text style={styles.error}>Error</Text>
+          <Text style={styles.error}>{JSON.stringify(error)}</Text>
         </SafeAreaView>
       )}
     </>
@@ -25,12 +25,12 @@ const ScreenLoader = props => {
 
 ScreenLoader.propTypes = {
   loading: PropTypes.bool,
-  error: PropTypes.array,
+  error: PropTypes.any,
 }
 
 ScreenLoader.defaultProps = {
   loading: true,
-  error: [],
+  error: null,
 }
 
 export default withMemo()(ScreenLoader)
