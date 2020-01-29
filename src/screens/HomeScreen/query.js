@@ -6,9 +6,10 @@ export default gql`
       items {
         title
         meetupDate
+        labels
       }
     }
-    pagesCollection(locale: $locale) {
+    pagesCollection(locale: $locale, order: [title_ASC]) {
       items {
         sys {
           id
@@ -17,7 +18,7 @@ export default gql`
         isInMenu
       }
     }
-    productCategoriesCollection(locale: $locale) {
+    productCategoriesCollection(locale: $locale, order: [title_ASC]) {
       items {
         sys {
           id

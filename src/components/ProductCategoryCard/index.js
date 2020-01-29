@@ -1,8 +1,9 @@
 import React, { useCallback } from 'react'
-import { Text, TouchableOpacity } from 'react-native'
+import { TouchableOpacity } from 'react-native'
 import { withNavigation } from 'react-navigation'
 import PropTypes from 'prop-types'
 import withMemo from '../../decorators/WithMemo'
+import ContentfulImage from '../ContentfulImage'
 import styles from './styles'
 
 const ProductCategoryCard = props => {
@@ -18,8 +19,12 @@ const ProductCategoryCard = props => {
 
   return (
     <TouchableOpacity onPress={onPress} style={styles.container}>
-      <Text style={styles.text}>{item.title}</Text>
-      <Text style={styles.text}>{item.sys.id}</Text>
+      <ContentfulImage
+        url={item.image.url}
+        width={160}
+        height={160}
+        params={{ f: 'center', fit: 'fill', r: 50, bg: 'transparent' }}
+      />
     </TouchableOpacity>
   )
 }
