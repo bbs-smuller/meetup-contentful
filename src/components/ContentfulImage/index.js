@@ -22,8 +22,6 @@ const ContentfulImage = props => {
     return `${url}?${queryString.stringify(transformer)}`
   }, [url, transformer])
 
-  console.log({ apiUrl })
-
   // render
 
   return <Image source={{ uri: apiUrl }} style={{ width, height }} />

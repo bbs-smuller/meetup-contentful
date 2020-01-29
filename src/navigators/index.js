@@ -31,13 +31,15 @@ const AppNavigator = createStackNavigator(
     initialRouteName: 'Home',
     defaultNavigationOptions: {
       title: 'Shopiful',
-      headerBackTitle: '',
+      headerBackTitle: ' ',
       headerStyle: {
         backgroundColor: 'white',
       },
       headerTintColor: 'black',
       headerTitleStyle: {
-        fontWeight: 'bold',
+        fontWeight: 'normal',
+        fontFamily: 'Bangers',
+        letterSpacing: 3,
       },
     },
   },
