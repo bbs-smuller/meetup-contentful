@@ -1,6 +1,7 @@
 import { createAppContainer } from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack'
 import HomeScreen from '../screens/HomeScreen'
+import LocaleSwitcherScreen from '../screens/LocaleSwitcherScreen'
 import PageScreen from '../screens/PageScreen'
 import ProductCategoriesScreen from '../screens/ProductCategoriesScreen'
 import ProductCategoryScreen from '../screens/ProductCategoryScreen'
@@ -10,6 +11,9 @@ const AppNavigator = createStackNavigator(
   {
     Home: {
       screen: HomeScreen,
+    },
+    LocaleSwitcher: {
+      screen: LocaleSwitcherScreen,
     },
     Page: {
       screen: PageScreen,
@@ -33,13 +37,13 @@ const AppNavigator = createStackNavigator(
       title: 'Shopiful',
       headerBackTitle: ' ',
       headerStyle: {
-        backgroundColor: 'white',
+        backgroundColor: '#ffffff',
       },
-      headerTintColor: 'black',
+      headerTintColor: '#000000',
       headerTitleStyle: {
-        fontWeight: 'normal',
         fontFamily: 'Bangers',
-        letterSpacing: 3,
+        fontWeight: 'normal',
+        letterSpacing: 2,
       },
     },
   },

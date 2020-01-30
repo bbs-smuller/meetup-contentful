@@ -9,7 +9,7 @@ const ProductCategoriesScreen = () => {
   const { globalContext } = useContext(GlobalContext)
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
       <Text style={styles.header}>{globalContext.config.labels.productCategoriesTitle}</Text>
       <FlatList
         data={globalContext.productCategories}

@@ -5,8 +5,8 @@ class Delivery {
   static get(endpoint, params = {}) {
     return axios.get(endpoint, {
       params: {
-        access_token: CONTENTFUL_DELIVERY_TOKEN,
         ...params,
+        access_token: CONTENTFUL_DELIVERY_TOKEN,
       },
       baseURL: this.baseUrl(),
     })

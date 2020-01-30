@@ -49,8 +49,16 @@ const HomeScreen = props => {
 
   // memo
 
-  const onButtonPress = useCallback(() => {
-    navigation.navigate('ProductCategories' /* , { name: 'SMU' } */)
+  const goToLocaleSwitcher = useCallback(() => {
+    navigation.navigate('LocaleSwitcher')
+  }, [navigation])
+
+  const goToProducts = useCallback(() => {
+    navigation.navigate('ProductCategories')
+  }, [navigation])
+
+  const goToLegals = useCallback(() => {
+    navigation.navigate('Pages', { id: '5rG2MavTiuhVZM6gkpXVIe' })
   }, [navigation])
 
   // render
@@ -62,8 +70,10 @@ const HomeScreen = props => {
         <SafeAreaView style={styles.container}>
           <Text style={styles.title}>{`HomeScreen ${globalContext.config.title}`}</Text>
           <Text>{formatDate(globalContext.config.meetupDate, globalContext.locale)}</Text>
-          <Text>{JSON.stringify(globalContext.locales)}</Text>
-          <Button onPress={onButtonPress} title="Products" />
+          <Text>{JSON.stringify(globalContext.locale)}</Text>
+          <Button onPress={goToLocaleSwitcher} title="Locale switcher" />
+          <Button onPress={goToProducts} title="Products" />
+          <Button onPress={goToLegals} title="Legals" />
         </SafeAreaView>
       )}
     </>

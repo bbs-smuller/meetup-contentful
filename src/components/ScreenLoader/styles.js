@@ -1,14 +1,14 @@
 import { StyleSheet } from 'react-native'
+import theme from '../../theme'
 
 export default StyleSheet.create({
   container: {
-    height: '100%',
-    justifyContent: 'center',
+    ...theme.container,
     alignItems: 'center',
-    backgroundColor: '#f5fcff',
+    justifyContent: 'center',
   },
   error: {
-    color: 'red',
+    color: '#970b11',
     textAlign: 'center',
   },
 })

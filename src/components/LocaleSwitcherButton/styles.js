@@ -1,10 +1,10 @@
 import { StyleSheet } from 'react-native'
-import theme from '../../theme'
 
 export default StyleSheet.create({
-  container: theme.container,
-  header: theme.header,
-  list: {
+  container: {
+    alignItems: 'center',
+    flex: 1,
     marginBottom: 64,
+    padding: 64,
   },
 })
