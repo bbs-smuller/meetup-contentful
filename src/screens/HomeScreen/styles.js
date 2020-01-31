@@ -1,9 +1,10 @@
 import { StyleSheet } from 'react-native'
+import { colors } from '../../theme'
 
 export default StyleSheet.create({
   container: {
     alignItems: 'center',
-    backgroundColor: '#f5fcff',
+    backgroundColor: colors.smoke,
     flex: 1,
     justifyContent: 'center',
   },

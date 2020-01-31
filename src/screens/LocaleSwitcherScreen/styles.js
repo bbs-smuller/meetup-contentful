@@ -3,5 +3,8 @@ import theme from '../../theme'
 
 export default StyleSheet.create({
   container: theme.container,
-  header: theme.header,
+  header: {
+    ...theme.header,
+    marginBottom: 0,
+  },
 })

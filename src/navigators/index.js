@@ -6,6 +6,7 @@ import PageScreen from '../screens/PageScreen'
 import ProductCategoriesScreen from '../screens/ProductCategoriesScreen'
 import ProductCategoryScreen from '../screens/ProductCategoryScreen'
 import ProductScreen from '../screens/ProductScreen'
+import { colors } from '../theme'
 
 const AppNavigator = createStackNavigator(
   {
@@ -37,9 +38,9 @@ const AppNavigator = createStackNavigator(
       title: 'Shopiful',
       headerBackTitle: ' ',
       headerStyle: {
-        backgroundColor: '#ffffff',
+        backgroundColor: colors.white,
       },
-      headerTintColor: '#000000',
+      headerTintColor: colors.black,
       headerTitleStyle: {
         fontFamily: 'Bangers',
         fontWeight: 'normal',

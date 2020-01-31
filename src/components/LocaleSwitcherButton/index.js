@@ -4,6 +4,7 @@ import { withNavigation } from 'react-navigation'
 import PropTypes from 'prop-types'
 import withMemo from '../../decorators/WithMemo'
 import { GlobalContext } from '../../contexts'
+import { colors } from '../../theme'
 import styles from './styles'
 
 const LocaleSwitcherButton = props => {
@@ -20,11 +21,13 @@ const LocaleSwitcherButton = props => {
     navigation.navigate('Home')
   }, [locale, navigation, globalContext, setGlobalContext])
 
+  const activeColor = locale === globalContext.locale ? colors.black : colors.darkMediumGray
+
   // render
 
   return (
     <TouchableOpacity onPress={onPress} style={styles.container}>
-      <Text>{globalContext.config.labels[`locale_${locale}`]}</Text>
+      <Text style={{ color: activeColor, ...styles.text }}>{globalContext.config.labels[`locale_${locale}`]}</Text>
     </TouchableOpacity>
   )
 }
