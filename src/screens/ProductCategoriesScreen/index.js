@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { FlatList, Text, SafeAreaView } from 'react-native'
 import withMemo from '../../decorators/WithMemo'
-import { GlobalContext } from '../../GlobalContext'
+import { GlobalContext } from '../../contexts'
 import ProductCategoryCard from '../../components/ProductCategoryCard'
 import styles from './styles'
 

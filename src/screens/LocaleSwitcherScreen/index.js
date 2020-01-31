@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { FlatList, SafeAreaView, Text } from 'react-native'
 import withMemo from '../../decorators/WithMemo'
-import { GlobalContext } from '../../GlobalContext'
+import { GlobalContext } from '../../contexts'
 import LocaleSwitcherButton from '../../components/LocaleSwitcherButton'
 import styles from './styles'
 

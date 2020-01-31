@@ -3,7 +3,7 @@ import { Text, TouchableOpacity } from 'react-native'
 import { withNavigation } from 'react-navigation'
 import PropTypes from 'prop-types'
 import withMemo from '../../decorators/WithMemo'
-import { GlobalContext } from '../../GlobalContext'
+import { GlobalContext } from '../../contexts'
 import styles from './styles'
 
 const LocaleSwitcherButton = props => {

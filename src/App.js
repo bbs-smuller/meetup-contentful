@@ -1,8 +1,8 @@
 import React, { useMemo, useState } from 'react'
 import { ApolloProvider } from '@apollo/react-hooks'
-import AppContainer from './navigators'
 import client from './services/GraphQL/client'
-import { GlobalContext } from './GlobalContext'
+import { GlobalContext } from './contexts'
+import Init from './Init'
 
 const App = () => {
   const [globalContext, setGlobalContext] = useState(null)
@@ -11,7 +11,7 @@ const App = () => {
   return (
     <ApolloProvider client={client}>
       <GlobalContext.Provider value={value}>
-        <AppContainer />
+        <Init />
       </GlobalContext.Provider>
     </ApolloProvider>
   )
