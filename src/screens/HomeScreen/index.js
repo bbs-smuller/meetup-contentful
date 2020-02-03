@@ -1,16 +1,29 @@
 import React, { useCallback, useContext } from 'react'
-import { Button, SafeAreaView, Text } from 'react-native'
+import { SafeAreaView, Text, TouchableOpacity, View } from 'react-native'
+import { useQuery } from '@apollo/react-hooks'
 import withMemo from '../../decorators/WithMemo'
 import { GlobalContext } from '../../contexts'
-import { formatDate } from '../../helpers/DateHelper'
+import ScreenLoader from '../../components/ScreenLoader'
+import ContentfulImage from '../../components/ContentfulImage'
+import HighlightProductCard from '../../components/HighlightProductCard'
+import query from './query'
 import styles from './styles'
 
 const HomeScreen = props => {
   const { navigation } = props
   const { globalContext } = useContext(GlobalContext)
 
+  // data
+
+  const { loading, error, data } = useQuery(query, {
+    variables: {
+      locale: globalContext.locale,
+    },
+  })
+
   // memo
 
+  /*
   const goToLocaleSwitcher = useCallback(() => {
     navigation.navigate('LocaleSwitcher')
   }, [navigation])
@@ -18,22 +31,24 @@ const HomeScreen = props => {
   const goToProducts = useCallback(() => {
     navigation.navigate('ProductCategories')
   }, [navigation])
-
-  const goToLegals = useCallback(() => {
-    navigation.navigate('Pages', { id: '5rG2MavTiuhVZM6gkpXVIe' })
-  }, [navigation])
+  */
 
   // render
 
   return (
-    <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>{`HomeScreen ${globalContext.config.title}`}</Text>
-      <Text>{formatDate(globalContext.config.meetupDate, globalContext.locale)}</Text>
-      <Text>{JSON.stringify(globalContext.locale)}</Text>
-      <Button onPress={goToLocaleSwitcher} title="Locale switcher" />
-      <Button onPress={goToProducts} title="Products" />
-      <Button onPress={goToLegals} title="Legals" />
-    </SafeAreaView>
+    <>
+      <ScreenLoader loading={loading} error={error} />
+      {!loading && !error && (
+        <SafeAreaView style={styles.container}>
+          <Text style={styles.header}>{globalContext.config.labels.highlightedProducts}</Text>
+          <View style={styles.highlights}>
+            {data.productsCollection.items.map(product => (
+              <HighlightProductCard product={product} key={product.sys.id} />
+            ))}
+          </View>
+        </SafeAreaView>
+      )}
+    </>
   )
 }
 
