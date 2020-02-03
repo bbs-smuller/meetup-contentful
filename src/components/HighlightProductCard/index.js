@@ -1,37 +1,37 @@
 import React, { useCallback } from 'react'
-import { Dimensions, Text, TouchableOpacity } from 'react-native'
+import { Text, TouchableOpacity } from 'react-native'
 import PropTypes from 'prop-types'
 import { withNavigation } from 'react-navigation'
 import ContentfulImage from '../ContentfulImage'
-import styles from '../../screens/HomeScreen/styles'
 import withMemo from '../../decorators/WithMemo'
+import styles from './styles'
 
 const HighlightProductCard = props => {
-  const { navigation, product } = props
+  const { navigation, item } = props
 
   // layout
 
-  const { width } = Dimensions.get('window') / 3
-  const height = width * 0.8
+  const width = 80
+  const height = 80
 
   // memo
 
   const goToProduct = useCallback(() => {
-    navigation.navigate('Product', { id: product.sys.id })
-  }, [navigation, product.sys.id])
+    navigation.navigate('Product', { id: item.sys.id })
+  }, [navigation, item.sys.id])
 
   // render
 
   return (
-    <TouchableOpacity onPress={goToProduct}>
-      <ContentfulImage url={product.image.url} width={width} height={height} />
-      <Text style={styles.text}>{product.title}</Text>
+    <TouchableOpacity onPress={goToProduct} style={styles.container}>
+      <ContentfulImage url={item.image.url} width={width} height={height} params={{ fit: 'thumb' }} />
+      <Text style={styles.text}>{item.title}</Text>
     </TouchableOpacity>
   )
 }
 
 HighlightProductCard.propTypes = {
-  product: PropTypes.object.isRequired,
+  item: PropTypes.object.isRequired,
 }
 
 export default withMemo()(withNavigation(HighlightProductCard))

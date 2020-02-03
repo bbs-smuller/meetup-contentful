@@ -1,10 +1,11 @@
 import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
-  image: {
-    //
+  container: {
+    alignItems: 'center',
   },
   text: {
     fontFamily: 'Raleway',
+    marginTop: 10,
   },
 })

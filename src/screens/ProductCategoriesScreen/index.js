@@ -13,7 +13,7 @@ const ProductCategoriesScreen = () => {
       <Text style={styles.header}>{globalContext.config.labels.productCategoriesTitle}</Text>
       <FlatList
         data={globalContext.productCategories}
-        renderItem={({ item }) => <ProductCategoryCard item={item} />}
+        renderItem={({ item }) => <ProductCategoryCard item={item} style={{ marginBottom: 64 }} />}
         keyExtractor={item => item.sys.id}
         style={styles.list}
       />

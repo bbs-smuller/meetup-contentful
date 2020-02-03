@@ -7,23 +7,23 @@ import ContentfulImage from '../ContentfulImage'
 import styles from './styles'
 
 const ProductCategoryCard = props => {
-  const { navigation, item } = props
+  const { navigation, item, style } = props
 
   // memo
 
   const onPress = useCallback(() => {
     navigation.navigate('ProductCategory', { id: item.sys.id })
-  }, [item.sys.id, navigation])
+  }, [navigation, item.sys.id])
 
   // render
 
   return (
-    <TouchableOpacity onPress={onPress} style={styles.container}>
+    <TouchableOpacity onPress={onPress} style={{ ...styles.container, ...style }}>
       <ContentfulImage
         url={item.image.url}
-        width={160}
-        height={160}
-        params={{ f: 'center', fit: 'fill', r: 50, bg: 'transparent' }}
+        width={120}
+        height={120}
+        params={{ f: 'center', fit: 'pad', r: 50, bg: 'transparent' }}
       />
     </TouchableOpacity>
   )
@@ -31,6 +31,11 @@ const ProductCategoryCard = props => {
 
 ProductCategoryCard.propTypes = {
   item: PropTypes.object.isRequired,
+  style: PropTypes.object,
+}
+
+ProductCategoryCard.defaultProps = {
+  style: {},
 }
 
 export default withMemo()(withNavigation(ProductCategoryCard))
