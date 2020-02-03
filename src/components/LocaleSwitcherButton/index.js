@@ -21,13 +21,17 @@ const LocaleSwitcherButton = props => {
     navigation.navigate('Home')
   }, [locale, navigation, globalContext, setGlobalContext])
 
+  const activeText = locale === globalContext.locale ? '✔' : ''
   const activeColor = locale === globalContext.locale ? colors.black : colors.darkMediumGray
 
   // render
 
   return (
     <TouchableOpacity onPress={onPress} style={styles.container}>
-      <Text style={{ color: activeColor, ...styles.text }}>{globalContext.config.labels[`locale_${locale}`]}</Text>
+      <Text style={{ color: activeColor, ...styles.text }}>
+        {activeText ? `${activeText} ` : ''}
+        {globalContext.config.labels[`locale_${locale}`]}
+      </Text>
     </TouchableOpacity>
   )
 }

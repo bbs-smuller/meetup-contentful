@@ -7,4 +7,7 @@ export default StyleSheet.create({
     ...theme.header,
     marginBottom: 0,
   },
+  localesContainer: {
+    //
+  },
 })
