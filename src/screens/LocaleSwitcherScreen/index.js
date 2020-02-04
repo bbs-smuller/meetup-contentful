@@ -8,6 +8,8 @@ import styles from './styles'
 const LocaleSwitcherScreen = () => {
   const { globalContext } = useContext(GlobalContext)
 
+  // render
+
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.header}>{globalContext.config.labels.localeSwitcherTitle}</Text>
