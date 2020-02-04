@@ -1,10 +1,11 @@
 import React, { useContext, useMemo } from 'react'
-import { FlatList, SafeAreaView, ScrollView, Text } from 'react-native'
+import { FlatList, SafeAreaView, Text } from 'react-native'
 import { useQuery } from '@apollo/react-hooks'
 import withMemo from '../../decorators/WithMemo'
 import ProductCard from '../../components/ProductCard'
 import ScreenLoader from '../../components/ScreenLoader'
 import { GlobalContext } from '../../contexts'
+import Markdown from '../../components/Markdown'
 import styles from './styles'
 import query from './query'
 import reducer from './reducer'
@@ -36,18 +37,17 @@ const ProductCategoryScreen = props => {
     <>
       <ScreenLoader loading={loading} error={error} />
       {!loading && !error && (
-        <SafeAreaView>
+        <SafeAreaView style={styles.container}>
           <Text style={styles.header}>{data.productCategories.title}</Text>
-
-          {data.productCategories.description && (
-            <ScrollView style={styles.descriptionContainer}>
-              <Text style={styles.description}>{data.productCategories.description}</Text>
-            </ScrollView>
-          )}
           <FlatList
             data={items}
             renderItem={({ item }) => <ProductCard item={item} />}
             keyExtractor={item => item.sys.id}
+            ListHeaderComponent={
+              data.productCategories.description && (
+                <Markdown text={data.productCategories.description} style={styles.description} />
+              )
+            }
           />
         </SafeAreaView>
       )}

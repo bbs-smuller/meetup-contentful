@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react'
-import { TouchableOpacity } from 'react-native'
+import { TouchableOpacity, ViewPropTypes } from 'react-native'
 import { withNavigation } from 'react-navigation'
 import PropTypes from 'prop-types'
 import withMemo from '../../decorators/WithMemo'
@@ -31,11 +31,11 @@ const ProductCategoryCard = props => {
 
 ProductCategoryCard.propTypes = {
   item: PropTypes.object.isRequired,
-  style: PropTypes.object,
+  style: ViewPropTypes.style,
 }
 
 ProductCategoryCard.defaultProps = {
-  style: {},
+  style: null,
 }
 
 export default withMemo()(withNavigation(ProductCategoryCard))
