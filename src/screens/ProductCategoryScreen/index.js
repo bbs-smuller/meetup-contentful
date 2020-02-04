@@ -41,6 +41,7 @@ const ProductCategoryScreen = props => {
           <Text style={styles.header}>{data.productCategories.title}</Text>
           <FlatList
             data={items}
+            numColumns={2}
             renderItem={({ item }) => <ProductCard item={item} />}
             keyExtractor={item => item.sys.id}
             ListHeaderComponent={
