@@ -10,4 +10,8 @@ export default {
   em: {
     // fontVariant: 'italic',
   },
+  listItemUnorderedContent: {
+    fontFamily: 'Raleway',
+    marginBottom: 16,
+  },
 }

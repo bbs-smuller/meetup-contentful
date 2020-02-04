@@ -4,4 +4,7 @@ import theme from '../../theme'
 export default StyleSheet.create({
   container: theme.container,
   header: theme.header,
+  slider: {
+    marginTop: 32,
+  },
 })
