@@ -67,9 +67,7 @@ const HomeScreen = props => {
             <TouchableOpacity onPress={goToLocaleSwitcher}>
               <Text style={styles.footerLink}>{globalContext.config.labels.locales}</Text>
             </TouchableOpacity>
-            {globalContext.pages.map(page => (
-              <PageLink item={page} key={page.sys.id} />
-            ))}
+            {globalContext.pages.map(page => page.isInMenu && <PageLink item={page} key={page.sys.id} />)}
           </View>
         </SafeAreaView>
       )}

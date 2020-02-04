@@ -8,6 +8,8 @@ import styles from './styles'
 const ProductCategoriesScreen = () => {
   const { globalContext } = useContext(GlobalContext)
 
+  // render
+
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.header}>{globalContext.config.labels.productCategoriesTitle}</Text>
@@ -15,7 +17,6 @@ const ProductCategoriesScreen = () => {
         data={globalContext.productCategories}
         renderItem={({ item }) => <ProductCategoryCard item={item} style={{ marginBottom: 64 }} />}
         keyExtractor={item => item.sys.id}
-        style={styles.list}
       />
     </SafeAreaView>
   )
