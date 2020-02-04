@@ -1,10 +1,11 @@
 import React, { useCallback, useContext, useMemo } from 'react'
-import { SafeAreaView, ScrollView, Text, TouchableOpacity, View } from 'react-native'
+import { Alert, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from 'react-native'
 import { useQuery } from '@apollo/react-hooks'
 import withMemo from '../../decorators/WithMemo'
 import { GlobalContext } from '../../contexts'
 import ScreenLoader from '../../components/ScreenLoader'
 import ContentfulImage from '../../components/ContentfulImage'
+import HighlightProductCard from '../../components/HighlightProductCard'
 import Markdown from '../../components/Markdown'
 import styles from './styles'
 import query from './query'
@@ -31,8 +32,11 @@ const ProductScreen = props => {
   }, [data])
 
   const onPress = useCallback(() => {
-    console.log(`Buy product on Shopify`)
-  }, [])
+    console.log(`Buy product on `)
+    if (product.shopifyId) {
+      Alert.alert('SHOPIFY', `#${product.shopifyId}`)
+    }
+  }, [product])
 
   // render
 
@@ -50,12 +54,24 @@ const ProductScreen = props => {
           )}
           <ScrollView>
             <View style={styles.imageContainer}>
-              <ContentfulImage url={product.image.url} width={240} height={240} params={{ fit: 'pad' }} />
+              <ContentfulImage url={product.image.url} width={320} height={320} params={{ fit: 'pad' }} />
             </View>
             <TouchableOpacity onPress={onPress} style={styles.buttonContainer}>
               <Text style={styles.button}>{globalContext.config.labels.productBuy}</Text>
             </TouchableOpacity>
             {product.description && <Markdown text={product.description} />}
+            {product.relatedProductsCollection?.items && (
+              <>
+                <Text style={{ ...styles.subtitle, marginVertical: 32 }}>
+                  {globalContext.config.labels.relatedProductsTitle}
+                </Text>
+                <View style={styles.relatedProducts}>
+                  {product.relatedProductsCollection.items.map(item => (
+                    <HighlightProductCard item={item} key={item.sys.id} />
+                  ))}
+                </View>
+              </>
+            )}
           </ScrollView>
         </SafeAreaView>
       )}

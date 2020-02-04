@@ -21,6 +21,8 @@ const LocaleSwitcherButton = props => {
     navigation.navigate('Home')
   }, [locale, navigation, globalContext, setGlobalContext])
 
+  // data
+
   const activeText = locale === globalContext.locale ? '✔' : ''
   const activeColor = locale === globalContext.locale ? colors.black : colors.darkMediumGray
 

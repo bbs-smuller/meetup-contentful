@@ -9,16 +9,22 @@ export default StyleSheet.create({
     fontSize: 18,
     textAlign: 'center',
     textTransform: 'uppercase',
+    marginBottom: 16,
   },
   priceContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
+    marginBottom: 16,
   },
   price: {
     marginLeft: 16,
-    padding: 5,
+    paddingVertical: 5,
+    paddingHorizontal: 10,
     fontFamily: 'Raleway',
+    letterSpacing: 2,
     color: colors.white,
+    alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: colors.darkMediumGray,
   },
   imageContainer: {
@@ -31,9 +37,15 @@ export default StyleSheet.create({
   },
   button: {
     fontFamily: 'Bebas Neue',
+    fontSize: 16,
+    letterSpacing: 3,
     color: colors.white,
     backgroundColor: colors.darkMediumGray,
     paddingVertical: 16,
     paddingHorizontal: 48,
+  },
+  relatedProducts: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
   },
 })
