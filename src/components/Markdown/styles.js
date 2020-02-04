@@ -1,8 +1,8 @@
 export default {
   paragraph: {
-    marginLeft: 8,
+    marginHorizontal: 16,
     fontFamily: 'Raleway',
-    fontSize: 14,
+    fontSize: 16,
   },
   strong: {
     // fontWeight: 'bold',
