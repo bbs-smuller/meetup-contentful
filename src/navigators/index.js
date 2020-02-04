@@ -42,7 +42,7 @@ const AppNavigator = createStackNavigator(
       },
       headerTintColor: colors.black,
       headerTitleStyle: {
-        fontFamily: 'Bangers',
+        fontFamily: 'Bebas Neue',
         fontWeight: 'normal',
         letterSpacing: 2,
       },

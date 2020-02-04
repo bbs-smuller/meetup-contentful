@@ -5,7 +5,8 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   text: {
-    fontFamily: 'Raleway',
-    fontSize: 18,
+    fontFamily: 'Bebas Neue',
+    fontSize: 20,
+    letterSpacing: 2,
   },
 })

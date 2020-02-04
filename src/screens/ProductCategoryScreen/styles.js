@@ -5,6 +5,6 @@ export default StyleSheet.create({
   container: theme.container,
   header: theme.header,
   description: {
-    marginBottom: 16,
+    alignItems: 'center',
   },
 })

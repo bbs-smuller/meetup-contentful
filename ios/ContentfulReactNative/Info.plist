@@ -75,11 +75,11 @@
 	<string>Allow Contentful - ReactNative to access your reminders</string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Bangers-Regular.ttf</string>
 		<string>Raleway-Bold.ttf</string>
 		<string>Raleway-Italic.ttf</string>
 		<string>Raleway-Medium.ttf</string>
 		<string>Raleway-Regular.ttf</string>
+		<string>BebasNeue-Regular.ttf</string>
 	</array>
 </dict>
 </plist>

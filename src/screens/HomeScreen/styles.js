@@ -7,7 +7,10 @@ export default StyleSheet.create({
     flex: 1,
     justifyContent: 'space-between',
   },
-  header: theme.header,
+  header: {
+    ...theme.header,
+    marginBottom: 32,
+  },
   highlightsContainer: {
     backgroundColor: colors.whiteAntiFlash,
     flex: 1,

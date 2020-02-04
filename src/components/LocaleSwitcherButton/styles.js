@@ -9,7 +9,7 @@ export default StyleSheet.create({
     paddingVertical: 48,
   },
   text: {
-    fontFamily: 'Bangers',
+    fontFamily: 'Bebas Neue',
     fontSize: 32,
   },
 })

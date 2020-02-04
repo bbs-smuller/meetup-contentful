@@ -15,10 +15,10 @@ export default {
   header: {
     color: colors.black,
     fontSize: 32,
-    fontFamily: 'Bangers',
+    fontFamily: 'Bebas Neue',
     fontWeight: 'normal',
     letterSpacing: 2,
-    marginBottom: 32,
+    marginBottom: 16,
     marginTop: 32,
     textAlign: 'center',
     textTransform: 'uppercase',
