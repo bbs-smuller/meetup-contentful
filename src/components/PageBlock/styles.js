@@ -8,9 +8,10 @@ export default StyleSheet.create({
     fontFamily: 'Bebas Neue',
     fontSize: 18,
     marginVertical: 16,
+    letterSpacing: 1,
   },
   image: {
     alignItems: 'center',
-    marginBottom: 16,
+    marginVertical: 16,
   },
 })
