@@ -12,10 +12,10 @@ const ProductCategoriesScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.header}>{globalContext.config.labels.productCategoriesTitle}</Text>
+      <Text style={{ ...styles.header, marginBottom: 64 }}>{globalContext.config.labels.productCategoriesTitle}</Text>
       <FlatList
         data={globalContext.productCategories}
-        renderItem={({ item }) => <ProductCategoryCard item={item} style={{ marginBottom: 64 }} />}
+        renderItem={({ item }) => <ProductCategoryCard item={item} style={{ marginBottom: 32 }} />}
         keyExtractor={item => item.sys.id}
       />
     </SafeAreaView>
